@@ -1,21 +1,50 @@
 site_name: Mkdocs Example
-site_url: https://example.com/
+site_url: https://example.com
 nav:
   - Home: index.md
+  - Markdown: markdown.md
   - About: about.md
+
+plugins:
+  - search
+  - autolinks
+  - minify:
+      minify_html: false
+  - git-revision-date-localized:
+      type: timeago
+
 # theme: readthedocs
 theme:
   name: material
   palette:
-
     # Palette toggle for light mode
-    - scheme: default
+    - scheme: defaultmk
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
     # Palette toggle for dark mode
     - scheme: slate
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+  features:
+    - content.code.copy
+    - navigation.instant
+    - navigation.path
+    - navigation.expand
+    - navigation.top
+    - toc.integrate
+
+markdown_extensions:
+  - admonition
+  - meta
+  - toc:
+      permalink: true
+      baselevel: 2
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
